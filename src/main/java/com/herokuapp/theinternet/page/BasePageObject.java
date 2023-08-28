@@ -45,6 +45,12 @@ public class BasePageObject {
         find(locator).sendKeys();
     }
 
+    // get current page URL from a browser
+    public String getCurrentUrl() {
+        return driver.getCurrentUrl();
+    }
+
+
     // wait for specific ExpectedCondition for the given amount of time in seconds
     private void waitFor(ExpectedCondition<WebElement> condition, Integer timeOutInSeconds) {
         timeOutInSeconds = timeOutInSeconds != null ? timeOutInSeconds : 30;

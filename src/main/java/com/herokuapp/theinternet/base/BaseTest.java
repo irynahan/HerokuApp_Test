@@ -33,7 +33,7 @@ public class BaseTest {
 
     }
 
-    @AfterMethod
+    @AfterMethod (enabled = false)
     public void tearDown() {
         // close browser
         log.info("Close driver");
