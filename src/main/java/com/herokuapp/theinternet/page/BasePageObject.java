@@ -42,7 +42,7 @@ public class BasePageObject {
         waitForVisibilityOf(locator, 5);
         click(locator);
         find(locator).clear();
-        find(locator).sendKeys();
+        find(locator).sendKeys(text);
     }
 
     // get current page URL from a browser

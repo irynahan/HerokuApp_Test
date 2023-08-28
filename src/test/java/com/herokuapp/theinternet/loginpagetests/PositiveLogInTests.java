@@ -25,7 +25,6 @@ public class PositiveLogInTests extends BaseTest {
 
         // Verifications
         // New page url is expected
-
         Assert.assertEquals(secureAreaPage.getCurrentUrl(), secureAreaPage.getPageUrl());
 
         // log out button is visible
