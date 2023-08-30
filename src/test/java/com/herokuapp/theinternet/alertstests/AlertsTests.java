@@ -1,14 +1,13 @@
 package com.herokuapp.theinternet.alertstests;
 
 import com.herokuapp.theinternet.base.BaseTest;
+import com.herokuapp.theinternet.base.TestUtilities;
 import com.herokuapp.theinternet.page.JavaScriptAlertsPage;
 import com.herokuapp.theinternet.page.WelcomePageObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static java.lang.Thread.sleep;
-
-public class AlertsTests extends BaseTest {
+public class AlertsTests extends TestUtilities {
     @Test
     public void jsAlertTest() {
         log.info("Starting jsAlertTest");
