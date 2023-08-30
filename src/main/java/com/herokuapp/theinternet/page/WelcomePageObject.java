@@ -15,6 +15,7 @@ public class WelcomePageObject extends BasePageObject {
 
     private By formAuthenticationLinkLocator = By.linkText("Form Authentication");
     private By checkboxesLinkLocator = By.linkText("Checkboxes");
+    private By javaScriptAlertsLinkLocator = By.linkText("JavaScript Alerts");
 
     /**
      * Open WelcomePage with it's url
@@ -44,6 +45,15 @@ public class WelcomePageObject extends BasePageObject {
 
     }
 
+    /**
+     * Open JavaScript Alerts by clicking on JavaScript Alerts Link
+     */
+    public JavaScriptAlertsPage clickJavaScriptAlertsLink(){
+        log.info("Clicking JavaScript Alerts link on Welcome Page");
+        click(javaScriptAlertsLinkLocator);
+        return new JavaScriptAlertsPage(driver, log);
+
+    }
 
 
 }

@@ -1,10 +1,7 @@
 package com.herokuapp.theinternet.page;
 
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -78,5 +75,11 @@ public class BasePageObject {
         }
     }
 
+    // Wait for alert present and then switch to it
+    protected Alert switchToAlert() {
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        wait.until(ExpectedConditions.alertIsPresent());
+        return driver.switchTo().alert();
+    }
 
 }
