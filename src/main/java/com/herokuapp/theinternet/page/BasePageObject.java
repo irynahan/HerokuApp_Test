@@ -58,13 +58,18 @@ public class BasePageObject {
     //Get title of current page
     public String getCurrentPageTitle() {
         return driver.getTitle();
-
     }
 
     // Get source of current page
     public String getCurrentPageSource() {
         return driver.getPageSource();
     }
+
+    // Switch to iframe using it's locator
+    protected void switchToFrame(By frameLocator){
+        driver.switchTo().frame(find(frameLocator));
+    }
+
 
     // wait for specific ExpectedCondition for the given amount of time in seconds
     private void waitFor(ExpectedCondition<WebElement> condition, Integer timeOutInSeconds) {
