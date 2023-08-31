@@ -7,7 +7,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 public class BasePageObject {
 
@@ -53,6 +55,16 @@ public class BasePageObject {
         return driver.getCurrentUrl();
     }
 
+    //Get title of current page
+    public String getCurrentPageTitle() {
+        return driver.getTitle();
+
+    }
+
+    // Get source of current page
+    public String getCurrentPageSource() {
+        return driver.getPageSource();
+    }
 
     // wait for specific ExpectedCondition for the given amount of time in seconds
     private void waitFor(ExpectedCondition<WebElement> condition, Integer timeOutInSeconds) {
@@ -80,6 +92,25 @@ public class BasePageObject {
         WebDriverWait wait = new WebDriverWait(driver, 5);
         wait.until(ExpectedConditions.alertIsPresent());
         return driver.switchTo().alert();
+    }
+
+    //
+    public void switchToWindowWithTitle(String expectedTitle) {
+        // Switching to new window
+        String firstWindow = driver.getWindowHandle();
+
+        Set<String> allWindows = driver.getWindowHandles();
+        Iterator<String> windowsIterator = allWindows.iterator();
+
+        while (windowsIterator.hasNext()) {
+            String windowHandle = windowsIterator.next().toString();
+            if (!windowHandle.equals(firstWindow)) {
+                driver.switchTo().window(windowHandle);
+                if (getCurrentPageTitle().equals(expectedTitle)) {
+                    break;
+                }
+            }
+        }
     }
 
 }
