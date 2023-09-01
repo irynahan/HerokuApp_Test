@@ -28,7 +28,7 @@ public class BaseTest {
 
         BrowserDriverFactory factory = new BrowserDriverFactory(browser, log);
         driver = factory.createDriver();
-        //driver.manage().window().maximize();
+        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
     }
