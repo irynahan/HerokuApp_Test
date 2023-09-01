@@ -46,7 +46,7 @@ public class BasePageObject {
     // type given text into element with given locator
     protected void type(String text, By locator) {
         waitForVisibilityOf(locator, 5);
-        click(locator);
+        //click(locator);
         find(locator).clear();
         find(locator).sendKeys(text);
     }
@@ -130,5 +130,24 @@ public class BasePageObject {
             }
         }
     }
+
+    // Perform scroll page to the bottom with JavaScript
+    public void scrollToBottom() {
+        log.info("Scrolling to the bottom of the page");
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        // "window.scrollTo(x,y)" scrolls to the particular location
+        jsExecutor.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+        // "window.scrollBy(x,y)" scrolls from the current location
+    }
+
+    // Perform scroll page to the web element with JavaScript
+    public void scrollToWebElement(By locator) {
+        log.info("Scrolling to the element " + locator);
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", find(locator));
+
+    }
+
+
 
 }

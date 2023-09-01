@@ -16,7 +16,7 @@ public class UploadTests extends TestUtilities {
         fileUploaderPage.openPage();
 
         // Select file
-        String fileName = "IMG_2240.jpg";
+        String fileName = "logo.txt";
         fileUploaderPage.selectFile(fileName);
 
         // Push upload button

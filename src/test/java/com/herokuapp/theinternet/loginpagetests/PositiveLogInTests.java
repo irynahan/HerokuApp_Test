@@ -3,7 +3,7 @@ package com.herokuapp.theinternet.loginpagetests;
 import com.herokuapp.theinternet.base.BaseTest;
 import com.herokuapp.theinternet.page.LoginPage;
 import com.herokuapp.theinternet.page.SecureAreaPage;
-import com.herokuapp.theinternet.page.WelcomePageObject;
+import com.herokuapp.theinternet.page.WelcomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -14,11 +14,11 @@ public class PositiveLogInTests extends BaseTest {
 
         log.info("Starting logIn test");
 
-        WelcomePageObject welcomePageObject = new WelcomePageObject(driver, log);
-        welcomePageObject.openPage();
+        WelcomePage welcomePage = new WelcomePage(driver, log);
+        welcomePage.openPage();
 
         // Click on Form Authentication link
-        LoginPage loginPage = welcomePageObject.clickFormAuthenticationLink();
+        LoginPage loginPage = welcomePage.clickFormAuthenticationLink();
 
         // execute log in
         SecureAreaPage secureAreaPage =  loginPage.logIn("tomsmith", "SuperSecretPassword!");
