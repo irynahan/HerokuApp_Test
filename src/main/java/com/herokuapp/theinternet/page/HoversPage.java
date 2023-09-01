@@ -14,7 +14,6 @@ public class HoversPage extends BasePageObject{
     }
 
     private String pageUrl = "http://the-internet.herokuapp.com/hovers";
-
     private By avatarLocator = By.xpath("//div[@class='figure']");
     private By viewProfileLinkLocator = By.xpath(".//a[contains(text(),'View profile')]");
 
@@ -31,6 +30,7 @@ public class HoversPage extends BasePageObject{
         List<WebElement> avatars = findAll(avatarLocator);
         WebElement specifiedUserAvatar = avatars.get(userNumber - 1);
         hoverOverElement(specifiedUserAvatar);
+        // find element viewProfileLinkLocator within specifiedUserAvatar thanks to dot ".//a[]"
         specifiedUserAvatar.findElement(viewProfileLinkLocator).click();
     }
 
