@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="HorizontalSliderTestSuite" verbose="1">
+
+    <test name="HorizontalSliderTest">
+        <parameter name = "value" value = "3.5" ></parameter>
+        <classes>
+            <class name="com.herokuapp.theinternet.horizontalslidertests.HorizontalSliderTests" />
+        </classes>
+    </test>
+
+</suite>

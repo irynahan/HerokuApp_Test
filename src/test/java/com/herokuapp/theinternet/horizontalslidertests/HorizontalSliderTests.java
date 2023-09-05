@@ -11,7 +11,7 @@ public class HorizontalSliderTests extends TestUtilities {
 
     @Parameters({"value"})
     @Test
-    public void sliderTest(@Optional("1") String value) {
+    public void sliderTest(double value) {
 
         // Open HorizontalSliderPage
         HorizontalSliderPage horizontalSliderPage = new HorizontalSliderPage(driver, log);
@@ -23,9 +23,9 @@ public class HorizontalSliderTests extends TestUtilities {
         sleep(2000);
 
         // Verify slider value
-        String sliderValue = horizontalSliderPage.getSliderValue();
-        Assert.assertTrue(sliderValue.equals(value), "Range is not correct. It is: " + sliderValue);
+        double sliderValue = horizontalSliderPage.getSliderValue();
+        Assert.assertEquals(sliderValue, value,  "Range is not correct. It is: " + sliderValue);
 
     }
-    
+
 }
