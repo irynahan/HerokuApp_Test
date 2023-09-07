@@ -1,13 +1,14 @@
 package com.herokuapp.theinternet.loginpagetests;
 
 import com.herokuapp.theinternet.base.BaseTest;
+import com.herokuapp.theinternet.base.TestUtilities;
 import com.herokuapp.theinternet.page.LoginPage;
 import com.herokuapp.theinternet.page.SecureAreaPage;
 import com.herokuapp.theinternet.page.WelcomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class PositiveLogInTests extends BaseTest {
+public class PositiveLogInTests extends TestUtilities {
 
     @Test
     public void logInTest() {
@@ -22,6 +23,7 @@ public class PositiveLogInTests extends BaseTest {
 
         // execute log in
         SecureAreaPage secureAreaPage =  loginPage.logIn("tomsmith", "SuperSecretPassword!");
+        takeScreenshot("LoginAndPassword");
 
         // Verifications
         // New page url is expected
