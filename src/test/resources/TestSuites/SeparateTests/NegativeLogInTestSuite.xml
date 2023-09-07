@@ -1,7 +1,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="NegativeLogInTestSuite" verbose="1" parallel="tests" thread-count="4">
-
+    <!-- tests with @parameter , data are given in test suite-->
     <test name="NegativeUsernameTest-CH">
         <parameter name="username" value="incorrectUsername"></parameter>
         <parameter name="password" value="SuperSecretPassword!"></parameter>
@@ -9,6 +9,9 @@
         <parameter name="browser" value="chrome"></parameter>
         <classes>
             <class name="com.herokuapp.theinternet.loginpagetests.NegativeLogInTests">
+                <methods>
+                    <include name="negativeLogInTestParam"> </include>
+                </methods>
             </class>
         </classes>
     </test>
@@ -20,6 +23,9 @@
         <parameter name="browser" value="firefox"></parameter>
         <classes>
             <class name="com.herokuapp.theinternet.loginpagetests.NegativeLogInTests">
+                <methods>
+                    <include name="negativeLogInTestParam"> </include>
+                </methods>
             </class>
         </classes>
     </test>
@@ -31,6 +37,9 @@
         <parameter name="browser" value="chrome"></parameter>
         <classes>
             <class name="com.herokuapp.theinternet.loginpagetests.NegativeLogInTests">
+                <methods>
+                    <include name="negativeLogInTestParam"> </include>
+                </methods>
             </class>
         </classes>
     </test>
@@ -42,6 +51,9 @@
         <parameter name="browser" value="firefox"></parameter>
         <classes>
             <class name="com.herokuapp.theinternet.loginpagetests.NegativeLogInTests">
+                <methods>
+                    <include name="negativeLogInTestParam"> </include>
+                </methods>
             </class>
         </classes>
     </test>

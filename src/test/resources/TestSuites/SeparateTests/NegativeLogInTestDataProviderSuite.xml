@@ -1,0 +1,27 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="NegativeLogInTestSuite" verbose="1" parallel="tests" thread-count="4">
+    <!-- tests with data provider .cvs file -->
+    <test name="NegativeLoginTest-CH">
+        <parameter name="browser" value="chrome"></parameter>
+        <classes>
+            <class name="com.herokuapp.theinternet.loginpagetests.NegativeLogInTests">
+                <methods>
+                    <include name="negativeLogInTest"> </include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="NegativeLoginTest-FF">
+        <parameter name="browser" value="firefox"></parameter>
+        <classes>
+            <class name="com.herokuapp.theinternet.loginpagetests.NegativeLogInTests">
+                <methods>
+                    <include name="negativeLogInTest"> </include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>
