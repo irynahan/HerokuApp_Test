@@ -13,7 +13,7 @@ public class TestUtilities extends BaseTest{
         }
     }
 
-    // static data provider for delivery a list of files as array of arrays object, to be downloaded
+    // static data provider for delivery array of arrays object, to be downloaded
     @DataProvider(name="filesToDownload")
     protected static Object[][] files() {
         return new Object[][] {
