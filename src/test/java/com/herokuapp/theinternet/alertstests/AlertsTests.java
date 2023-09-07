@@ -5,10 +5,14 @@ import com.herokuapp.theinternet.page.JavaScriptAlertsPage;
 import com.herokuapp.theinternet.page.WelcomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 public class AlertsTests extends TestUtilities {
+
+    // with soft assertion
     @Test
     public void jsAlertTest() {
+
         log.info("Starting jsAlertTest");
 
         // open main page
@@ -33,13 +37,17 @@ public class AlertsTests extends TestUtilities {
 
 
         // Verifications
+        SoftAssert softAssert = new SoftAssert();
+
         // 1 - Alert text is expected
-        Assert.assertTrue(alertMessage.equals("I am a JS Alert"),
+        softAssert.assertTrue(alertMessage.equals("I am a JS Alert"),
                 "Alert message is not expected. \nShould be 'I am a JS Alert', but it is '" + alertMessage + "'");
 
         // 2 - Result text is expected
-        Assert.assertTrue(result.equals("You successfully clicked an alert"),
+        softAssert.assertTrue(result.equals("You successfully clicked an alert"),
                 "result is not expected. \nShould be 'You successfuly clicked an alert', but it is '" + result + "'");
+
+        softAssert.assertAll("Not all asserts are true");
     }
 
     @Test
@@ -77,7 +85,7 @@ public class AlertsTests extends TestUtilities {
 
     @Test
     public void jsPromptTest() {
-        log.info("Starting jsDismissTest");
+        log.info("Starting jsPromptTest");
 
         // open main page
         WelcomePage welcomePage = new WelcomePage(driver, log);
