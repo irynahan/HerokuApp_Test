@@ -1,10 +1,10 @@
 package com.herokuapp.theinternet.base;
 
 import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import org.testng.log4testng.Logger;
 
 public class TestListener implements ITestListener {
 
@@ -16,6 +16,7 @@ public class TestListener implements ITestListener {
     public void onTestStart(ITestResult result) {
         ITestListener.super.onTestStart(result);
         this.testMethodName = result.getMethod().getMethodName();
+        // all log.info  "starting test" have to be deleted
         log.info("[Starting " + testMethodName + "]");
     }
 
