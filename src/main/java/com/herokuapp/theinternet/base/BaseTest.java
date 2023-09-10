@@ -9,7 +9,7 @@ import org.testng.annotations.*;
 import java.lang.reflect.Method;
 import java.util.concurrent.TimeUnit;
 
-@Listeners({ com.herokuapp.theinternet.base.TestListener.class })
+@Listeners({com.herokuapp.theinternet.base.TestListener.class})
 
 public class BaseTest {
 
@@ -18,19 +18,24 @@ public class BaseTest {
 
     // parameters for the path of takeScreenshot method in Test Utilities
     protected String testSuiteName;
-    protected String  testName;
+    protected String testName;
     protected String testMethodName;
 
-    @Parameters({"browser"})
+    @Parameters({"browser", "chromeProfile"})
     @BeforeMethod(alwaysRun = true)
-    public void setUp(Method method, @Optional("chrome") String browser, ITestContext ctx) {
+    public void setUp(Method method, @Optional("chrome") String browser, @Optional String profile, ITestContext ctx) {
 
         // ctx - context is used to get current test name for log acc. Xml file;
         String testName = ctx.getCurrentXmlTest().getName();
         log = LogManager.getLogger(testName);
 
         BrowserDriverFactory factory = new BrowserDriverFactory(browser, log);
-        driver = factory.createDriver();
+        if (profile != null) {
+            driver = factory.createChromeWithProfile(profile);
+        } else {
+            driver = factory.createDriver();
+        }
+
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
@@ -40,7 +45,7 @@ public class BaseTest {
 
     }
 
-    @AfterMethod (enabled = false)
+    @AfterMethod(enabled = false)
     public void tearDown() {
         // close browser
         log.info("Close driver");
