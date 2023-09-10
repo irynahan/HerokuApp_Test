@@ -16,8 +16,6 @@ public class NegativeLogInTests extends BaseTest {
     @Test (priority = 1)
     public void negativeLogInTestParam(String username, String password, String expectedMessage) {
 
-        log.info("Starting negativeLogInTestParam");
-
         WelcomePage welcomePage = new WelcomePage(driver, log);
         welcomePage.openPage();
 

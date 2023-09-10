@@ -9,7 +9,6 @@ public class UploadTests extends TestUtilities {
 
     @Test
     public void textUploadTest() {
-        log.info("Starting textUploadTest");
 
         // open File Uploader Page
         FileUploaderPage fileUploaderPage = new FileUploaderPage(driver, log);
@@ -33,6 +32,7 @@ public class UploadTests extends TestUtilities {
     // file upload tests with static data provider
     @Test (dataProvider = "filesToDownload")
     public void fileUploadTest( int testIndex, String fileName) {
+
         log.info("Starting fileUploadTest " + testIndex + " " + fileName );
 
         // open File Uploader Page

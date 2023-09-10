@@ -16,7 +16,7 @@ public class TestListener implements ITestListener {
     public void onTestStart(ITestResult result) {
         ITestListener.super.onTestStart(result);
         this.testMethodName = result.getMethod().getMethodName();
-        // all log.info  "starting test" have to be deleted
+        // all  log.info("Starting *Test");  have to be deleted
         log.info("[Starting " + testMethodName + "]");
     }
 

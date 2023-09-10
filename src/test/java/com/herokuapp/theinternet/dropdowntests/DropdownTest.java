@@ -13,8 +13,6 @@ public class DropdownTest extends TestUtilities {
     @Test
     public void selectOptionTest(int option){
 
-        log.info("Starting selectOptionTest : "+ option);
-
         // open main page
         WelcomePage welcomePage = new WelcomePage(driver, log);
         welcomePage.openPage();

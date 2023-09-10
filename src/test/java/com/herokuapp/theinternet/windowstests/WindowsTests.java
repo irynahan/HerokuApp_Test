@@ -11,7 +11,6 @@ public class WindowsTests extends TestUtilities {
 
     @Test
     public void newWindowTest() {
-        log.info("Starting newWindowTest");
 
         // open main page
         WelcomePage welcomePage = new WelcomePage(driver, log);
