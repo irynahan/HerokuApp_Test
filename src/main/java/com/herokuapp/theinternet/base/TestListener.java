@@ -7,7 +7,7 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 public class TestListener implements ITestListener {
-
+    // can be run from file.xml (in SmokeTestSuite) or with annotation in bast class for all tests
     Logger log;
     String testName;
     String testMethodName;
