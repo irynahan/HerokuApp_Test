@@ -39,14 +39,14 @@ public class BrowserDriverFactory {
                 break;
 
             case "chromeheadless":
-                System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+                System.setProperty("webdriver.chrome.driver", "C:\\projects\\Tools\\chrome-driver\\chromedriver.exe");
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--headless");
                 driver.set(new ChromeDriver(chromeOptions));
                 break;
 
             case "firefoxheadless":
-                System.setProperty("webdriver.gecko.driver", "src/main/resources/geckodriver.exe");
+                System.setProperty("webdriver.gecko.driver", "C:\\projects\\Tools\\geckodriver\\geckodriver.exe");
                 FirefoxBinary firefoxBinary = new FirefoxBinary();
                 firefoxBinary.addCommandLineOptions("--headless");
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
