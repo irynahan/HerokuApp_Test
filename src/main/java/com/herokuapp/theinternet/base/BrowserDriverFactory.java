@@ -7,6 +7,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -52,6 +54,16 @@ public class BrowserDriverFactory {
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
                 firefoxOptions.setBinary(firefoxBinary);
                 driver.set(new FirefoxDriver(firefoxOptions));
+                break;
+            // headless drivers dependencies in pom.file, downloaded https://phantomjs.org/download.html
+            case "phantomjs":
+                System.setProperty("phantomjs.binary.path", "C:\\projects\\Tools\\PhantomJS\\phantomjs.exe");
+                driver.set(new PhantomJSDriver());
+                break;
+
+
+            case "htmlunit":
+                driver.set(new HtmlUnitDriver());
                 break;
 
             default:
